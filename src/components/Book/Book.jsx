@@ -1,3 +1,7 @@
+
+
+import { IoStar } from 'react-icons/io5';
+
 const Book = ({ book }) => {
   const { rating, publisher, image, category, bookName } = book;
   return (
@@ -12,7 +16,10 @@ const Book = ({ book }) => {
         <p className="text-green-600">{publisher}</p>
         <p className="text-green-600">{category}</p>
       </span>
-      <h2 className="text-lg font-semibold text-gray-800">{book.bookName}</h2>
+      <h2 className="text-lg font-semibold text-gray-800">{bookName}</h2>
+      <h4 className='flex'>Rating: {rating} <span><IoStar className='text-2xl text-emerald-600' /></span></h4>
+     
+      
     </div>
   );
 };
