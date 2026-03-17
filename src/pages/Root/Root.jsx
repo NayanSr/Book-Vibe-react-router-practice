@@ -4,9 +4,9 @@ import Navbar from "../../components/Header/Navbar"
 
 const Root = () => {
   return (
-    <div>
+    <div className="max-w-7xl mx-auto flex flex-col min-h-screen">
         <Navbar/>
-        <Outlet/>
+        <span className="flex-1 bg-gray-300"><Outlet/></span>
         <Footer/>
     </div>
   )
