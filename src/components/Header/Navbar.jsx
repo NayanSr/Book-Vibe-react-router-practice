@@ -1,12 +1,17 @@
+import { Link } from "react-router";
+
 const Navbar = () => {
   const menuItem = (
     <>
       <li>
-        <a>Home</a>
+        <Link to='/'>Home</Link>
       </li>
 
       <li>
-        <a>About</a>
+        <Link to='/about'>About</Link>
+      </li>
+      <li>
+        <Link to='/readList'>Read List</Link>
       </li>
     </>
   );

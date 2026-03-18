@@ -1,10 +1,10 @@
-
-
-import { IoStar } from 'react-icons/io5';
+import { IoStar } from "react-icons/io5";
+import { Link } from "react-router";
 
 const Book = ({ book }) => {
-  const { rating, publisher, image, category, bookName } = book;
+  const {bookId, rating, publisher, image, category, bookName } = book;
   return (
+    <Link to={`/bookDetails/${bookId}`}>
     <div className="p-6 rounded-xl bg-gray-300 shadow-[0_0_10px_rgba(59,130,246,0.5)] shadow-blue-400/60 hover:shadow-blue-500/80 transition">
       <img
         className="w-44 h-64 bg-cover mx-auto rounded-md"
@@ -12,15 +12,20 @@ const Book = ({ book }) => {
         alt=""
         srcset=""
       />
+      <div className="border-t-2 border-dashed mt-4"></div>
       <span className="flex justify-between px-4 my-2">
         <p className="text-green-600">{publisher}</p>
         <p className="text-green-600">{category}</p>
       </span>
       <h2 className="text-lg font-semibold text-gray-800">{bookName}</h2>
-      <h4 className='flex'>Rating: {rating} <span><IoStar className='text-2xl text-emerald-600' /></span></h4>
-     
-      
+      <h4 className="flex">
+        Rating: {rating}{" "}
+        <span>
+          <IoStar className="text-2xl text-emerald-600" />
+        </span>
+      </h4>
     </div>
+    </Link>
   );
 };
 

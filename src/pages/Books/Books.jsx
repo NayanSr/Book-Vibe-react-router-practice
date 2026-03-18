@@ -25,7 +25,7 @@ const Books = ({ books }) => {
       <h1 className="text-4xl font-semibold text-center">All Books</h1>
       <Suspense fallback={<h2 className="bg-green-500">Data is loading...</h2>}>
         <div className=" grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-4">
-          {books.map((book) => (
+          {books?.map((book) => (
             <Book key={book.bookId} book={book} />
           ))}
         </div>
