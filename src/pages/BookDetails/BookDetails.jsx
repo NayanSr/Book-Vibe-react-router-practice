@@ -1,14 +1,16 @@
 import { FaStar } from "react-icons/fa";
 import { useLoaderData, useParams } from "react-router";
-import {   addBookToLs } from "../../utility/addToLs";
+import { addBookToLs } from "../../utility/addToLs";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+
+const MySwal = withReactContent(Swal);
 
 const BookDetails = () => {
-
-
   const { id } = useParams();
-  const books =useLoaderData();
-  if(!id && !books){
-    return <h3>Loading...</h3>
+  const books = useLoaderData();
+  if (!id && !books) {
+    return <h3>Loading...</h3>;
   }
   const clickedBook = books?.find((book) => book.bookId === parseInt(id));
   const {
@@ -28,10 +30,14 @@ const BookDetails = () => {
 
   const handleMarkAsRead = (id) => {
     addBookToLs(id, "readList");
+
+   
+  
+    
   };
-  const handleAddToWishlist=id=>{
-   addBookToLs(id,'wishlist')
-  }
+  const handleAddToWishlist = (id) => {
+    addBookToLs(id, "wishlist");
+  };
   return (
     <div className="min-h-screen bg-linear-to-br from-gray-100 to-blue-50 p-6 flex items-center justify-center">
       <div className="max-w-5xl w-full bg-white rounded-2xl shadow-[0_0_40px_rgba(0,0,0,0.1)] overflow-hidden grid md:grid-cols-2 gap-6">
@@ -100,7 +106,10 @@ const BookDetails = () => {
             >
               Already Read
             </button>
-            <button onClick={()=>handleAddToWishlist(id)} className="px-5 py-2 border border-gray-300 rounded-lg hover:bg-gray-100 transition">
+            <button
+              onClick={() => handleAddToWishlist(id)}
+              className="px-5 py-2 border border-gray-300 rounded-lg hover:bg-gray-100 transition"
+            >
               Wishlist
             </button>
           </div>
