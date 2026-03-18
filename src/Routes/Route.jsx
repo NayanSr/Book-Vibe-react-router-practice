@@ -19,9 +19,8 @@ const router = createBrowserRouter([
         Component: Home,
       },
       { path: "/about", Component: About },
-      {path:'readList', Component:ReadList},
+      {path:'readList', loader:()=>fetch('booksData.json'), Component:ReadList},
       {path: "/bookDetails/:id" ,loader: () => fetch("booksData.json"), Component: BookDetails},
-      // {path:'*', element:<ErrorPage/>}
     ],
   },
 ]);

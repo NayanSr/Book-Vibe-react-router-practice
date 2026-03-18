@@ -21,5 +21,5 @@ const addBookToLs = (id,keyName) => {
 };
 
 
-export {  addBookToLs };
+export {  addBookToLs, getStoredDataFromLs };
 
