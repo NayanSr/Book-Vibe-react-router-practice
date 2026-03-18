@@ -2,7 +2,7 @@ import { IoStar } from "react-icons/io5";
 import { Link } from "react-router";
 
 const Book = ({ book }) => {
-  const {bookId, rating, publisher, image, category, bookName } = book;
+  const {bookId, rating, publisher, image, category, bookName, totalPages } = book;
   return (
     <Link to={`/bookDetails/${bookId}`}>
     <div className="p-6 rounded-xl bg-gray-300 shadow-[0_0_10px_rgba(59,130,246,0.5)] shadow-blue-400/60 hover:shadow-blue-500/80 transition">
@@ -24,6 +24,7 @@ const Book = ({ book }) => {
           <IoStar className="text-2xl text-emerald-600" />
         </span>
       </h4>
+      <p>Page: {totalPages}</p>
     </div>
     </Link>
   );
